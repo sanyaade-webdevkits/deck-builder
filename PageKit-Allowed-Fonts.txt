@@ -1,0 +1,137 @@
+Academy Engraved LET Plain:1.0
+American Typewriter
+American Typewriter Bold
+Apple Color Emoji
+AppleGothic Regular
+Arial Bold Italic
+Arial Bold
+Arial Italic
+Arial Hebrew
+Arial Hebrew Bold
+Arial
+Arial Rounded MT Bold
+Bangla Sangam MN
+Bangla Sangam MN Bold
+Baskerville
+Baskerville Bold
+Baskerville Bold Italic
+Baskerville Italic
+Bodoni Ornaments
+Bodoni 72 Bold
+Bodoni 72 Book
+Bodoni 72 Book Italic
+Bodoni 72 Oldstyle Bold
+Bodoni 72 Oldstyle Book
+Bodoni 72 Oldstyle Book Italic
+Bodoni 72 Smallcaps Book
+Bradley Hand Bold
+Chalkboard SE Bold
+Chalkboard SE Regular
+Chalkduster
+Cochin
+Cochin Bold
+Cochin Bold Italic
+Cochin Italic
+Copperplate
+Copperplate Bold
+Courier
+Courier Bold
+Courier Bold Oblique
+Courier Oblique
+Courier New Bold Italic
+Courier New Bold
+Courier New Italic
+Courier New
+DB LCD Temp Black
+Devanagari Sangam MN
+Devanagari Sangam MN Bold
+Didot
+Didot Bold
+Didot Italic
+Futura Condensed ExtraBold
+Futura Medium
+Futura Medium Italic
+Geeza Pro
+Geeza Pro Bold
+Georgia
+Georgia Bold
+Georgia Bold Italic
+Georgia Italic
+Gill Sans
+Gill Sans Bold
+Gill Sans Bold Italic
+Gill Sans Italic
+Gujarati Sangam MN
+Gujarati Sangam MN Bold
+Gurmukhi MN
+Gurmukhi MN Bold
+Helvetica
+Helvetica Bold
+Helvetica Bold Oblique
+Helvetica Oblique
+Helvetica Neue
+Helvetica Neue Bold
+Helvetica Neue Bold Italic
+Helvetica Neue Italic
+Helvetica Neue Light
+Helvetica Neue Medium
+Hiragino Kaku Gothic ProN W3
+Hiragino Kaku Gothic ProN W6
+HiraMinProN-W3
+HiraMinProN-W6
+Hoefler Text Black
+Hoefler Text Black Italic
+Hoefler Text Italic
+Hoefler Text
+Kailasa Regular
+Kailasa Bold
+Kannada Sangam MN
+Kannada Sangam MN Bold
+Malayalam Sangam MN
+Malayalam Sangam MN Bold
+Marker Felt Thin
+Marker Felt Wide
+Optima Bold
+Optima Bold Italic
+Optima Italic
+Optima Regular
+Oriya Sangam MN
+Oriya Sangam MN Bold
+Palatino Bold
+Palatino Bold Italic
+Palatino Italic
+Palatino
+Papyrus
+Party LET Plain
+Sinhala Sangam MN
+Sinhala Sangam MN Bold
+Snell Roundhand
+Snell Roundhand Bold
+Heiti J Light
+Heiti J Medium
+Heiti K Light
+Heiti K Medium
+Heiti SC Light
+Heiti SC Medium
+Heiti TC Light
+Heiti TC Medium
+Tamil Sangam MN
+Tamil Sangam MN Bold
+Telugu Sangam MN
+Telugu Sangam MN Bold
+Thonburi
+Thonburi Bold
+Times New Roman Bold Italic
+Times New Roman Bold
+Times New Roman Italic
+Times New Roman
+Trebuchet MS Bold Italic
+Trebuchet MS
+Trebuchet MS Bold
+Trebuchet MS Italic
+Verdana
+Verdana Bold
+Verdana Bold Italic
+Verdana Italic
+Zapf Dingbats
+Zapfino

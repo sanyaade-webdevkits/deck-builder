@@ -20,10 +20,18 @@ else
   OUTPUT="$2.zip"
 fi
 
+# Clear output
+rm -f "${OUTPUT}"
+
 # Copy deck to temporary directory
 TEMP="/tmp/${NAME}"
 rm -rf "${TEMP}"
-cp -r "${INPUT}" "${TEMP}"
+if [[ -d "${INPUT}/.svn" ]]
+then
+  svn export "${INPUT}" "${TEMP}" > /dev/null
+else
+  cp -r "${INPUT}" "${TEMP}"
+fi
 
 # Validate PageKit files
 "${BASE_DIRECTORY}/PageKit-Validator.py" "${TEMP}"

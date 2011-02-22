@@ -62,9 +62,9 @@ def _ValidateImageFile(path):
           width = int(properties[kCGImagePropertyPixelWidth])
           height = int(properties[kCGImagePropertyPixelHeight])
     else:  # On Linux, use ImageMagick
-      format = subprocess.check_output(["identify", "-format", "%m", path])
-      width = int(subprocess.check_output(["identify", "-format", "%w", path]))
-      height = int(subprocess.check_output(["identify", "-format", "%h", path]))
+      format = subprocess.Popen(["identify", "-format", "%m", path], stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+      width = int(subprocess.Popen(["identify", "-format", "%w", path], stdout=subprocess.PIPE).communicate()[0].rstrip('\n'))
+      height = int(subprocess.Popen(["identify", "-format", "%h", path], stdout=subprocess.PIPE).communicate()[0].rstrip('\n'))
     if format == "JPEG" or format == "PNG":
       if width < 1 or width > MAX_IMAGE_WIDTH or height < 1 and height > MAX_IMAGE_HEIGHT:
         print "[" + path + "] Invalid dimensions of " + str(width) + " X " + str(height) + " pixels"

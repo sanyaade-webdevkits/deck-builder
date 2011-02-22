@@ -2,16 +2,19 @@ This repository contains tools to prepare decks for distribution for the Decks i
 
 To prepare a deck for distribution, simply follow these steps:
 1) Open a new Terminal window
-2) Drag and drop the "build-deck.sh" file onto the window
+2) Drag and drop the "Build-Deck.sh" file onto the window
 3) Drag and drop the directory containing the deck you want to distribute onto the window
 4) Verify the content in the window looks something like:
-   /Volumes/HDD/deck-builder/build-deck.sh /Volumes/HDD/deck-demo-welcome
+   /Volumes/HDD/deck-builder/Build-Deck.sh /Volumes/HDD/deck-demo-welcome
 5) Press [Return]
 6) In case of success, the newly created deck will be on your Desktop as a .zip, otherwise, you will see error messages in the window
 
-The validation tools perform these tasks:
-- Make sure the XML in the .page and .include files is valid (IMPORTANT: This does not guarantee it is valid PageKit XML, just valid XML)
+The preparation tool performs these tasks:
+- Remove any SCM information like ".svn" directories
+- Make sure the XML in the .page and .include files is valid (IMPORTANT: This does not guarantee the content is valid, just that the XML syntax is)
+- Make sure the XML in the .plist and .xml files is valid (IMPORTANT: This does not guarantee the content is valid, just that the XML syntax is)
 - Make sure the fonts used in the PageKit <string> blocks exist on the iPad
-- Optimize PNG files for iOS
+- Make sure all image files are JPEG or PNG with acceptable size and dimensions
+- Optimize the PNG files for iOS
 
 See http://developer.decksapp.com for documentation about distributing decks.

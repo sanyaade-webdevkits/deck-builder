@@ -23,18 +23,22 @@ fi
 # Clear output
 rm -f "${OUTPUT}"
 
+# Validate deck (run Python in 32 bits on Mac OS X 10.6 to allow Quartz bindings)
+export VERSIONER_PYTHON_PREFER_32_BIT=yes
+"${BASE_DIRECTORY}/Deck-Validator.py" "${INPUT}"
+
 # Copy deck to temporary directory
 TEMP="/tmp/${NAME}"
 rm -rf "${TEMP}"
-if [[ -d "${INPUT}/.svn" ]]
-then
-  svn export "${INPUT}" "${TEMP}" > /dev/null
-else
-  cp -r "${INPUT}" "${TEMP}"
-fi
+cp -r "${INPUT}" "${TEMP}"
 
-# Validate PageKit files
-"${BASE_DIRECTORY}/PageKit-Validator.py" "${TEMP}"
+# Clean up any SCM info
+find "${TEMP}" -name ".svn" -exec rm -rf {} +
+find "${TEMP}" -name ".git" -exec rm -rf {} +
+find "${TEMP}" -name ".hg" -exec rm -rf {} +
+
+# Clean up other extra files
+find "${TEMP}" -name ".DS_Store" -exec rm -f {} +
 
 # Optimize PNG images
 # http://iphonedevwiki.net/index.php/CgBI_file_format

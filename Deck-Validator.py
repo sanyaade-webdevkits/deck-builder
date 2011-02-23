@@ -1,8 +1,10 @@
 #!/usr/bin/python
 import sys, os, subprocess
-if os.uname()[0] == "Darwin":
+try:
   from Quartz import *
-  import Quartz
+  USE_QUARTZ = True
+except ImportError:
+  USE_QUARTZ = False
 
 MAX_IMAGE_SIZE = 1024 * 1024
 MAX_IMAGE_WIDTH = 2048
@@ -10,9 +12,9 @@ MAX_IMAGE_HEIGHT = 2048
 
 def _ValidateXMLFile(path):
   success = True
-  status = subprocess.call("xmllint \"" + path + "\" > /dev/null", shell=True)
+  status = subprocess.call('xmllint "%s" > /dev/null' % path, shell=True)
   if status != 0:
-    print "[" + path + "] Invalid XML"
+    print "[%s] Invalid XML" % path
     success = False
   return success
 
@@ -22,7 +24,7 @@ def _ValidatePageKitFile(path, fonts):
     fd = open(path, "r")
     content = fd.read()
     if content.find("<name>@") >= 0:
-      print "[" + path + "] Contains \"<name>@\" sequence"
+      print '[%s] Contains "<name>@" sequence' % path
       success = False
     else:
       start = 0
@@ -36,7 +38,7 @@ def _ValidatePageKitFile(path, fonts):
           raise Exception('Internal error')
         font = content[start:end]
         if not font in fonts:
-          print "[" + path + "] Unknown font \"" + font + "\""
+          print '[%s] Unknown font "%s"' % (path, font)
           success = False
         start = end + 7
     fd.close()
@@ -49,7 +51,7 @@ def _ValidateImageFile(path):
     format = None
     width = None
     height = None
-    if os.uname()[0] == "Darwin":  # On OS X, use Quartz bindings
+    if USE_QUARTZ: # Use Quartz bindings if avaliable
       source = CGImageSourceCreateWithURL(CFURLCreateWithFileSystemPath(None, path, kCFURLPOSIXPathStyle, False), None)
       if source != None:
         format = CGImageSourceGetType(source)
@@ -61,22 +63,22 @@ def _ValidateImageFile(path):
         if properties != None:
           width = int(properties[kCGImagePropertyPixelWidth])
           height = int(properties[kCGImagePropertyPixelHeight])
-    else:  # On Linux, use ImageMagick
+    else:  # Otherwise, use ImageMagick
       format = subprocess.Popen(["identify", "-format", "%m", path], stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
       width = int(subprocess.Popen(["identify", "-format", "%w", path], stdout=subprocess.PIPE).communicate()[0].rstrip('\n'))
       height = int(subprocess.Popen(["identify", "-format", "%h", path], stdout=subprocess.PIPE).communicate()[0].rstrip('\n'))
     if format == "JPEG" or format == "PNG":
       if width < 1 or width > MAX_IMAGE_WIDTH or height < 1 and height > MAX_IMAGE_HEIGHT:
-        print "[" + path + "] Invalid dimensions of " + str(width) + " X " + str(height) + " pixels"
+        print "[%s] Invalid dimensions of %i X %i pixels" % (path, width, height)
         success = False
     else:
-      print "[" + path + "] Unknown format '" + str(format) + "'"
+      print "[%s] Unknown format '%s'" % (path, format)
       success = False
   else:
-    print "[" + path + "] Unsupported size of " + str(size) + " bytes"
+    print "[%s] Unsupported size of %i bytes" % (path, size)
     success = False
   return success
-  
+
 def _ValidateMovieFile(path):
   # TODO
   return True
@@ -102,7 +104,7 @@ def _ValidateFiles(dir, fonts):
           if not _ValidateMovieFile(path):
             success = False
         elif len(extension) > 0:
-          print "[" + path + "] Unsupported file extension '" + extension + "'"
+          print "[%s] Unsupported file extension '%s'" % (path, extension)
           success = False
       elif os.path.isdir(path):
         if not _ValidateFiles(path, fonts):

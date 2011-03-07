@@ -1,4 +1,9 @@
 #!/usr/bin/python
+
+# This software is owned by Cooliris, Inc., copyright 2011, and licensed to you under the
+# Software License Agreement for the Decks by Cooliris Template Files and Sample Code available at
+# http://www.decksapp.com/sample-code-license/
+
 import sys, os, subprocess
 try:
   from Quartz import *

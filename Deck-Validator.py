@@ -99,7 +99,7 @@ def _ValidateFiles(dir, fonts):
         if extension == ".include" or extension == ".page":
           if not _ValidatePageKitFile(path, fonts):
             success = False
-        elif extension == ".jpg" or extension == ".png":
+        elif extension == ".jpg" extension == ".JPG" or extension == ".png" or extension == ".PNG":
           if not _ValidateImageFile(path):
             success = False
         elif extension == ".xml" or extension == ".plist":
@@ -108,6 +108,8 @@ def _ValidateFiles(dir, fonts):
         elif extension == ".mov":
           if not _ValidateMovieFile(path):
             success = False
+        elif extension == ".3ds" or extension == ".pvr":
+          pass
         elif len(extension) > 0:
           print "[%s] Unsupported file extension '%s'" % (path, extension)
           success = False

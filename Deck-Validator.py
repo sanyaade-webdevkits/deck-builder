@@ -99,7 +99,7 @@ def _ValidateFiles(dir, fonts):
         if extension == ".include" or extension == ".page":
           if not _ValidatePageKitFile(path, fonts):
             success = False
-        elif extension == ".jpg" extension == ".JPG" or extension == ".png" or extension == ".PNG":
+        elif extension == ".jpg" or extension == ".JPG" or extension == ".png" or extension == ".PNG":
           if not _ValidateImageFile(path):
             success = False
         elif extension == ".xml" or extension == ".plist":
